@@ -1,4 +1,5 @@
-import * as practiceController from "../controller/pratice";
+import * as practiceController from "../controller/pratice.js";
+import express from "express";
 
 const router = express.Router();
 

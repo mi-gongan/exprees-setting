@@ -1,8 +1,11 @@
 import express from "express"; //express를 설치했기 때문에 가져올 수 있다.
-import { config } from "./config.js";
-import { db } from "./db/database.js";
-import { cors } from "cors";
+import config from "./config.js";
+import db from "./database/sequalize/index.js";
+import cors from "cors";
 import practiceRouter from "./router/pratice.js";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import helmet from "helmet";
 
 const app = express();
 
@@ -25,5 +28,10 @@ app.use((error, req, res, next) => {
   res.status(500).json({ message: "Something went wrong" });
 });
 
-db.getConnection().then((connection) => console.log(connection));
+db.sync()
+  .then(() => {
+    console.log("DB Connection Success!");
+  })
+  .catch(console.error);
+
 app.listen(config.host.port);

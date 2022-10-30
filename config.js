@@ -9,7 +9,7 @@ function required(key, defaultValue = undefined) {
   return value;
 }
 
-export const config = {
+export default {
   host: {
     cors: required("CORS_ORIGIN", "http://localhost:3000"),
     port: parseInt(required("HOST_PORT", 8080)),

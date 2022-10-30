@@ -64,6 +64,12 @@ app.use(helmet())
 : HTTP request logger middleware = HTTP 요청에 대한 log를 남겨주는 미들웨어입니다.
 : 자세한 정보는 사용목적에 따라 document 확인
 
+## db setting
+
+### sequalize
+
+:database 보고 세팅
+
 ## MVC 패턴 사용하기
 
 :router와 controller 폴더를 참고하여 VC를 분리
