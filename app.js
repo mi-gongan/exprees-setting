@@ -6,6 +6,7 @@ import practiceRouter from "./router/pratice.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
+import { connectDB } from "./database/mongoose/index.js";
 
 const app = express();
 
@@ -27,11 +28,19 @@ app.use((error, req, res, next) => {
   console.log(error);
   res.status(500).json({ message: "Something went wrong" });
 });
+/**
+ * sequelize
+ */
+// db.sync()
+//   .then(() => {
+//     console.log("DB Connection Success!");
+//   })
+//   .catch(console.error);
 
-db.sync()
-  .then(() => {
-    console.log("DB Connection Success!");
-  })
-  .catch(console.error);
-
-app.listen(config.host.port);
+/**
+ * mongoose
+ */
+connectDB().then(() => {
+  console.log("DB Connection Success!");
+  const server = app.listen(config.host.port);
+});

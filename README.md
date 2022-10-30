@@ -5,7 +5,19 @@
 ### 기본 package 설치
 
 ```
-npm install express nodemon dotenv cors morgan helmet mysql2 sequelize
+npm install express nodemon dotenv cors morgan helmet
+```
+
+- sql
+
+```
+npm install mysql2 sequelize
+```
+
+- nosql
+
+```
+npm install mongoose
 ```
 
 ### nodemon 세팅
