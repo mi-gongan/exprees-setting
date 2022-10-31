@@ -1,15 +1,15 @@
-export const getPratice = (req, res) => {
+export const getPractice = (req, res) => {
   res.status(201).send("Get: /practice");
 };
 
-export const postPratice = (req, res) => {
+export const postPractice = (req, res) => {
   res.status(201).send("POST: /practice");
 };
 
-export const putPratice = (req, res) => {
+export const putPractice = (req, res) => {
   res.status(201).send("PUT: /practice/:id");
 };
 
-export const deletePratice = (req, res) => {
+export const deletePractice = (req, res) => {
   res.status(201).send("DELETE: /practice/:id");
 };

@@ -1,4 +1,4 @@
-# express+sequezlize 기본 setting
+# express db socket 기본 setting
 
 ## 환경세팅
 
@@ -18,6 +18,12 @@ npm install mysql2 sequelize
 
 ```
 npm install mongoose
+```
+
+- socket
+
+```
+npm install socket.io
 ```
 
 ### nodemon 세팅

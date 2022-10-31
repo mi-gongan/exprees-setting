@@ -2,11 +2,12 @@ import express from "express"; //express를 설치했기 때문에 가져올 수
 import config from "./config.js";
 import db from "./database/sequalize/index.js";
 import cors from "cors";
-import practiceRouter from "./router/pratice.js";
+import practiceRouter from "./router/practice.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
 import { connectDB } from "./database/mongoose/index.js";
+import { Server } from "socket.io";
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(morgan("tiny"));
 app.use(helmet());
 app.use(cors(corsOptions));
 
-app.use("/pratice", practiceRouter);
+app.use("/practice", practiceRouter);
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -43,4 +44,10 @@ app.use((error, req, res, next) => {
 connectDB().then(() => {
   console.log("DB Connection Success!");
   const server = app.listen(config.host.port);
+  const socketIO = new Server(server);
+
+  socketIO.on("connection", (socket) => {
+    console.log("Client is here");
+    socketIO.emit("pratice", "hello");
+  });
 });
