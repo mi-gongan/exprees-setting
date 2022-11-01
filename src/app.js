@@ -1,13 +1,13 @@
 import express from "express"; //express를 설치했기 때문에 가져올 수 있다.
-import config from "./config.js";
-import db from "./database/sequalize/index.js";
+import db from "./loaders/sequalize/index.js";
 import cors from "cors";
 import practiceRouter from "./router/practice.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
-import { connectDB } from "./database/mongoose/index.js";
+import { connectDB } from "./loaders/mongoose/index.js";
 import { Server } from "socket.io";
+import config from "./config/index.js";
 
 const app = express();
 
