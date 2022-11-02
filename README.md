@@ -2,6 +2,10 @@
 
 ## 환경세팅
 
+```
+npm int
+```
+
 ### 기본 package 설치
 
 ```
@@ -24,6 +28,61 @@ npm install mongoose
 
 ```
 npm install socket.io
+```
+
+## 기본 세팅
+
+### prettier+eslint (airbnb style guide)
+
+: 프로젝트 팀원들 간의 통일성 있는 코드를 작성하기 위함
+
+- eslint 와 prettier extensions를 설치하고 아래의 패키지를 설치해준다
+
+```
+npm install -D eslint prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+```
+npx install-peerdeps --dev eslint-config-airbnb
+```
+
+- .eslintrc 작성
+
+```
+{
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
+}
+```
+
+- .prettierrc 작성
+
+```
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "proseWrap": "never",
+  "endOfLine": "auto"
+}
+```
+
+- setting.json 설정
+
+```
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  }
+}
 ```
 
 ### nodemon 세팅
@@ -79,8 +138,7 @@ app.use(helmet())
 
 ### morgan
 
-: HTTP request logger middleware = HTTP 요청에 대한 log를 남겨주는 미들웨어입니다.
-: 자세한 정보는 사용목적에 따라 document 확인
+: HTTP request logger middleware = HTTP 요청에 대한 log를 남겨주는 미들웨어입니다. : 자세한 정보는 사용목적에 따라 document 확인
 
 ## db setting
 

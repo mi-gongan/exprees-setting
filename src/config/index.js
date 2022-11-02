@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
 
 function required(key, defaultValue = undefined) {
@@ -11,14 +11,14 @@ function required(key, defaultValue = undefined) {
 
 export default {
   host: {
-    cors: required("CORS_ORIGIN", "http://localhost:3000"),
-    port: parseInt(required("HOST_PORT", 8080)),
+    cors: required('CORS_ORIGIN', 'http://localhost:3000'),
+    port: parseInt(required('HOST_PORT', 8080)),
   },
   db: {
-    host: required("DB_HOST"),
-    user: required("DB_USER"),
-    databse: required("DB_DATABASE"),
-    password: required("DB_PASSWORD"),
-    url: required("DB_URL"),
+    host: required('DB_HOST'),
+    user: required('DB_USER'),
+    databse: required('DB_DATABASE'),
+    password: required('DB_PASSWORD'),
+    url: required('DB_URL'),
   },
 };
